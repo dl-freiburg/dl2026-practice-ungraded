@@ -1,0 +1,152 @@
+% Template for your submission.pdf. Enter your team name below, write your answers after "Answer:", and compile
+% this file to create submission.pdf.
+\documentclass[addpoints]{exam}
+
+% ---------- Fill in ----------
+\newcommand{\teamname}{my-team}  % your team name, as registered
+% ---------- End of the part to fill in ----------
+
+\newcommand{\assignmentnumber}{2}
+
+% ---------- Layout of the assignment sheets (from the sheets' macros.tex) ----------
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage[super]{nth}
+\usepackage{parskip}
+\usepackage[hyperfootnotes=false,colorlinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[protrusion=false,expansion=false]{microtype}
+\DisableLigatures{encoding = T1, family = tt*}
+\usepackage{enumitem}
+\pagestyle{headandfoot}
+
+\newcommand{\lecture}{Deep Learning}
+\newcommand{\semester}{WS 2026/2027}
+\newcommand{\assignment}[1]{\nth{#1} Assignment}
+
+\newcommand{\formatqwithpoints}{
+\qformat{\large \thequestion. [\thepoints] \textbf{\thequestiontitle}\hfill\vrule depth \spacingbelowquestion width 0pt}
+\bonusqformat{\large \thequestion. [\thepoints] \textbf{\thequestiontitle}\hfill\vrule depth \spacingbelowquestion width 0pt}
+}
+\newcommand{\formatqwithoutpoints}{
+\qformat{\large \thequestion. \textbf{\thequestiontitle}\hfill\vrule depth \spacingbelowquestion width 0pt}
+\bonusqformat{\large \thequestion. \textbf{\thequestiontitle}\hfill\vrule depth \spacingbelowquestion width 0pt}
+}
+\newcommand{\spacingbelowquestion}{0.85em}
+\formatqwithpoints
+\bonuspointpoints{bonus point}{bonus points}
+\renewcommand{\thepartno}{\arabic{partno}}
+\renewcommand\partlabel{\thepartno)}
+\bracketedpoints
+
+\setlength\parindent{0em}
+\setlength{\parskip}{1.0em}
+\renewcommand{\baselinestretch}{1.0}
+\renewcommand{\questionshook}{\setlength{\itemsep}{0.7em}
+    \setlength{\leftmargin}{0pt}\setlength{\labelwidth}{-\labelsep}}
+\renewcommand{\partshook}{\setlength{\itemsep}{0em}
+    \setlength{\leftmargin}{1em}
+    \setlength{\labelwidth}{-\labelsep}
+}
+\setlist[itemize]{itemsep=0em,parsep=0em}
+\newcommand{\myhrule}{\rule{\textwidth}{.5pt}}
+
+\newcommand{\titledq}[2]{\titledquestion{#1}[#2]\setlength{\parskip}{1.0em}}
+\newcommand{\titledqwithparts}[1]{
+    \large \formatqwithoutpoints
+    \titledquestion{#1}[]
+    \formatqwithpoints
+    \setlength{\parskip}{1.0em}
+    \normalsize
+}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\fileref}[1]{\texttt{#1}}
+\newcommand{\tbold}[1]{\textbf{#1}}
+\newcommand{\hint}{\tbold{Hint:}\ }
+\newcommand{\answer}{\tbold{Answer:}\ }
+
+% questions and parts with the number, title and points they have on the sheet
+% (the exam class keeps counting 1, 2, 3 internally; only the printed numbers are the sheet's)
+\newcommand{\sheetnumber}{}
+\newcommand{\sheetpartnumber}{}
+\renewcommand{\thequestion}{\sheetnumber}
+\renewcommand{\thepartno}{\sheetpartnumber}
+\newcommand{\sheetq}[3]{\renewcommand{\sheetnumber}{#1}\titledq{#2}{#3}}
+\newcommand{\sheetqwithparts}[2]{\renewcommand{\sheetnumber}{#1}\titledqwithparts{#2}}
+\newcommand{\sheetpart}[3]{\renewcommand{\sheetpartnumber}{#1}\part[#2] \tbold{#3}}
+
+\firstpageheader{Team: \teamname}{{\textbf{\lecture}}\\ Submission for the \assignment{\assignmentnumber}}{\semester}
+\firstpagefooter{}{\thepage}{}
+\runningheader{Team: \teamname}{Submission for the \assignment{\assignmentnumber}}{\semester}
+\runningfooter{}{\thepage}{}
+\headrule
+% ---------- End of the layout ----------
+
+\newcommand{\addtemplatenotes}{
+\setlength{\parskip}{0.0em}
+\small{
+\tbold{About this template:} This template contains the questions from the assignment sheet that require a
+written answer, with the original numbering and titles. While you may submit a handwritten scan instead, we
+strongly encourage using this \LaTeX{} template. \LaTeX{} is widely used for scientific papers and theses,
+especially for mathematical notation, so practicing it here is good preparation for your future research and
+thesis.
+\begin{itemize}
+    \item \tbold{Using this template:} Write your answer after \tbold{Answer:} below each question and compile
+    \code{submission.tex} to create \code{submission.pdf}.
+    \item \tbold{Showing your work:} Always provide your intermediate steps and reasoning, not just the final
+    result. For mathematical questions (derivations, proofs or calculations), show each step. For conceptual
+    questions, briefly explain the reasoning behind your answer.
+    \item \tbold{Team name \& anonymity:} Enter your team name at the top of \code{submission.tex}. Do not add
+    any other personal information, such as GitHub usernames, real names, email addresses or matriculation
+    numbers.
+    \item \tbold{How to hand in:} Commit and push \code{submission.pdf} to your team's repository together with
+    \code{submission.tex} and all files that it uses (for example, images and \code{.bib} files).
+\end{itemize}
+\myhrule%
+}%
+\setlength{\parskip}{1.0em}%
+}
+
+\begin{document}
+    \addtemplatenotes
+
+    \begin{questions}
+
+        \sheetq{1}{Pen and Paper MLP}{3\half}
+
+        Given the inputs and labels as well as the weights, biases and activation functions of the 2-layer MLP on
+        the sheet, calculate by hand the forward pass and the Binary Cross-Entropy-Loss (Cross-Entropy Error) for each
+        datapoint and then average over all datapoints. (Use the natural logarithm unless explicitly stated otherwise.)
+
+        \answer Your answer.
+        % For math over several lines, uncomment and fill in:
+        % \begin{align*}
+        %     z^{(1)}_1 &= W^{(1)\top} x_1 + b^{(1)} = \dots \\
+        %     h^{(1)}_1 &= g^{(1)}(z^{(1)}_1) = \dots
+        % \end{align*}
+
+        \sheetqwithparts{3}{Experiments}
+
+        \begin{parts}
+            \sheetpart{1}{\half}{Question}
+
+            What is the best accuracy you can achieve in practice using Logistic Regression?
+
+            \answer Your answer.
+
+            \sheetpart{3}{\half}{Decision boundary}
+
+            Look at the XOR plot (\fileref{xor\_plot.png} in your repository) and draw an optimal decision boundary
+            logistic regression can obtain into the plot.
+
+            \answer Draw the decision boundary into a copy of \fileref{xor\_plot.png}, save it next to this file,
+            commit it as well, and replace the file name below.
+            \begin{center}
+                \includegraphics[width=0.3\textwidth]{xor_plot.png}
+            \end{center}
+        \end{parts}
+
+    \end{questions}
+\end{document}

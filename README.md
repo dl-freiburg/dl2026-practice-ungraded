@@ -7,3 +7,4 @@ Clone once, then `git pull` after each release for the next exercise. Each folde
 **Keep your solutions to yourself.** Do not fork this repository and do not push your work to a public repository: a fork of a public repository is public, and so is everything you push there. Work in your clone (pushing to this repository is not possible), and if you want your work on GitHub, put it in a private repository. Once you have a team, copy your work into your team's repository.
 
 - [`ex01-tensors`](ex01-tensors/)
+- [`ex02-mlps`](ex02-mlps/)
