@@ -1,0 +1,183 @@
+% Template for your submission.pdf. Enter your team name below, write your answers after "Answer:", and compile
+% this file to create submission.pdf.
+\documentclass[addpoints]{exam}
+
+% ---------- Fill in ----------
+\newcommand{\teamname}{my-team}  % your team name, as registered
+% ---------- End of the part to fill in ----------
+
+\newcommand{\assignmentnumber}{3}
+
+% ---------- Layout of the assignment sheets (from the sheets' macros.tex) ----------
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage[super]{nth}
+\usepackage{parskip}
+\usepackage[hyperfootnotes=false,colorlinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[protrusion=false,expansion=false]{microtype}
+\DisableLigatures{encoding = T1, family = tt*}
+\usepackage{enumitem}
+\pagestyle{headandfoot}
+
+\newcommand{\lecture}{Deep Learning}
+\newcommand{\semester}{WS 2026/2027}
+\newcommand{\assignment}[1]{\nth{#1} Assignment}
+
+\newcommand{\formatqwithpoints}{
+\qformat{\large \thequestion. [\thepoints] \textbf{\thequestiontitle}\hfill\vrule depth \spacingbelowquestion width 0pt}
+\bonusqformat{\large \thequestion. [\thepoints] \textbf{\thequestiontitle}\hfill\vrule depth \spacingbelowquestion width 0pt}
+}
+\newcommand{\formatqwithoutpoints}{
+\qformat{\large \thequestion. \textbf{\thequestiontitle}\hfill\vrule depth \spacingbelowquestion width 0pt}
+\bonusqformat{\large \thequestion. \textbf{\thequestiontitle}\hfill\vrule depth \spacingbelowquestion width 0pt}
+}
+\newcommand{\spacingbelowquestion}{0.85em}
+\formatqwithpoints
+\bonuspointpoints{bonus point}{bonus points}
+\renewcommand{\thepartno}{\arabic{partno}}
+\renewcommand\partlabel{\thepartno)}
+\bracketedpoints
+
+\setlength\parindent{0em}
+\setlength{\parskip}{1.0em}
+\renewcommand{\baselinestretch}{1.0}
+\renewcommand{\questionshook}{\setlength{\itemsep}{0.7em}
+    \setlength{\leftmargin}{0pt}\setlength{\labelwidth}{-\labelsep}}
+\renewcommand{\partshook}{\setlength{\itemsep}{0em}
+    \setlength{\leftmargin}{1em}
+    \setlength{\labelwidth}{-\labelsep}
+}
+\setlist[itemize]{itemsep=0em,parsep=0em}
+\newcommand{\myhrule}{\rule{\textwidth}{.5pt}}
+
+\newcommand{\titledq}[2]{\titledquestion{#1}[#2]\setlength{\parskip}{1.0em}}
+\newcommand{\titledqwithparts}[1]{
+    \large \formatqwithoutpoints
+    \titledquestion{#1}[]
+    \formatqwithpoints
+    \setlength{\parskip}{1.0em}
+    \normalsize
+}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\fileref}[1]{\texttt{#1}}
+\newcommand{\tbold}[1]{\textbf{#1}}
+\newcommand{\hint}{\tbold{Hint:}\ }
+\newcommand{\answer}{\tbold{Answer:}\ }
+
+% questions and parts with the number, title and points they have on the sheet
+% (the exam class keeps counting 1, 2, 3 internally; only the printed numbers are the sheet's)
+\newcommand{\sheetnumber}{}
+\newcommand{\sheetpartnumber}{}
+\renewcommand{\thequestion}{\sheetnumber}
+\renewcommand{\thepartno}{\sheetpartnumber}
+\newcommand{\sheetq}[3]{\renewcommand{\sheetnumber}{#1}\titledq{#2}{#3}}
+\newcommand{\sheetqwithparts}[2]{\renewcommand{\sheetnumber}{#1}\titledqwithparts{#2}}
+\newcommand{\sheetpart}[3]{\renewcommand{\sheetpartnumber}{#1}\part[#2] \tbold{#3}}
+
+\firstpageheader{Team: \teamname}{{\textbf{\lecture}}\\ Submission for the \assignment{\assignmentnumber}}{\semester}
+\firstpagefooter{}{\thepage}{}
+\runningheader{Team: \teamname}{Submission for the \assignment{\assignmentnumber}}{\semester}
+\runningfooter{}{\thepage}{}
+\headrule
+% ---------- End of the layout ----------
+
+\newcommand{\addtemplatenotes}{
+\setlength{\parskip}{0.0em}
+\small{
+\tbold{About this template:} This template contains the questions from the assignment sheet that require a
+written answer, with the original numbering and titles. While you may submit a handwritten scan instead, we
+strongly encourage using this \LaTeX{} template. \LaTeX{} is widely used for scientific papers and theses,
+especially for mathematical notation, so practicing it here is good preparation for your future research and
+thesis.
+\begin{itemize}
+    \item \tbold{Using this template:} Write your answer after \tbold{Answer:} below each question and compile
+    \code{submission.tex} to create \code{submission.pdf}.
+    \item \tbold{Showing your work:} Always provide your intermediate steps and reasoning, not just the final
+    result. For mathematical questions (derivations, proofs or calculations), show each step. For conceptual
+    questions, briefly explain the reasoning behind your answer.
+    \item \tbold{Team name \& anonymity:} Enter your team name at the top of \code{submission.tex}. Do not add
+    any other personal information, such as GitHub usernames, real names, email addresses or matriculation
+    numbers.
+    \item \tbold{How to hand in:} Commit and push \code{submission.pdf} to your team's repository together with
+    \code{submission.tex} and all files that it uses (for example, images and \code{.bib} files).
+\end{itemize}
+\myhrule%
+}%
+\setlength{\parskip}{1.0em}%
+}
+
+\begin{document}
+    \addtemplatenotes
+
+    \begin{questions}
+
+        \sheetqwithparts{2}{Pen and Paper Tasks}
+
+        Perform a forward and backward pass to calculate the gradients for the weights $w_0$, $w_1$, $w_2$, $w_s$
+        in the MLP on the sheet.
+
+        \begin{parts}
+            \sheetpart{1}{2}{}Perform the backpropagation algorithm for the network on the sheet.
+
+            First perform the forward pass, followed by the backward pass to obtain gradients for the weights
+            $w_0, w_1, w_2, w_s$. Please assign equations/values to variables step by step similar to the lecture,
+            and reuse them later when possible to make your solution more readable (see slide 23, Lecture 3).
+
+            \answer Your answer.
+            % For math over several lines, uncomment and fill in:
+            % \begin{align*}
+            %     z_0 &= w_0 x \\
+            %     h_0 &= g_0(z_0)
+            % \end{align*}
+
+            \sheetpart{2}{1}{}Explain what difference the skip connection makes when propagating back the error.
+
+            \answer Your answer.
+
+            \sheetpart{3}{2}{}Calculate the gradients for the given datapoint and the given initial weights
+            (calculating the gradients requires to calculate a forward pass first). Also calculate the weights and the
+            loss after one gradient descent step.
+            \begin{align*}
+                (x_1, y_1) = (1, -3)\\
+                w_0 = w_1 = w_2 = w_s = 0.5\\
+                LearningRate = 1
+            \end{align*}
+
+            \hint Gradient descent is the simplest method to train/optimize your neural network. Given some learning
+            rate $\alpha$ and the gradient $\frac{\partial L}{\partial w}$ for a weight $w$, we update the weight like
+            this: $w = w - \alpha \frac{\partial L}{\partial w}$.
+
+            \answer Your answer.
+        \end{parts}
+
+        \sheetqwithparts{4}{Questions on experiments}
+
+        Answer the following questions based on the experiments of question 3 (\fileref{run\_xor\_experiment.py}):
+
+        \begin{parts}
+            \sheetpart{1}{\half}{}What do you observe with regards to the loss after 1 step of updating parameters?
+
+            \answer Your answer.
+
+            \sheetpart{2}{\half}{}What do you observe after multiple steps of updating parameters? Does the loss
+            always decrease? Explain why it may not.
+
+            \answer Your answer.
+
+            \sheetpart{3}{\half}{}Run the experiment multiple times. Do you always end up with the correct final
+            predictions? Explain why or why not?
+
+            \answer Your answer.
+
+            \sheetpart{4}{\half}{}What is the role of the variable \code{lr} in \fileref{run\_xor\_experiment.py}?
+            When would you set it to a relatively larger value and when would you set it to a relatively smaller
+            value? Explain.
+
+            \answer Your answer.
+        \end{parts}
+
+    \end{questions}
+\end{document}

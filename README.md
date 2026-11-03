@@ -8,3 +8,4 @@ Clone once, then `git pull` after each release for the next exercise. Each folde
 
 - [`ex01-tensors`](ex01-tensors/)
 - [`ex02-mlps`](ex02-mlps/)
+- [`ex03-backprop`](ex03-backprop/)
