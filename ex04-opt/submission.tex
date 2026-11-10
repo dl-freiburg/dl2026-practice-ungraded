@@ -1,0 +1,204 @@
+% Template for your submission.pdf. Enter your team name below, write your answers after "Answer:", and compile
+% this file to create submission.pdf.
+\documentclass[addpoints]{exam}
+
+% ---------- Fill in ----------
+\newcommand{\teamname}{my-team}  % your team name, as registered
+% ---------- End of the part to fill in ----------
+
+\newcommand{\assignmentnumber}{4}
+
+% ---------- Layout of the assignment sheets (from the sheets' macros.tex) ----------
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage[super]{nth}
+\usepackage{parskip}
+\usepackage[hyperfootnotes=false,colorlinks]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[protrusion=false,expansion=false]{microtype}
+\DisableLigatures{encoding = T1, family = tt*}
+\usepackage{enumitem}
+\pagestyle{headandfoot}
+
+\newcommand{\lecture}{Deep Learning}
+\newcommand{\semester}{WS 2026/2027}
+\newcommand{\assignment}[1]{\nth{#1} Assignment}
+
+\newcommand{\formatqwithpoints}{
+\qformat{\large \thequestion. [\thepoints] \textbf{\thequestiontitle}\hfill\vrule depth \spacingbelowquestion width 0pt}
+\bonusqformat{\large \thequestion. [\thepoints] \textbf{\thequestiontitle}\hfill\vrule depth \spacingbelowquestion width 0pt}
+}
+\newcommand{\formatqwithoutpoints}{
+\qformat{\large \thequestion. \textbf{\thequestiontitle}\hfill\vrule depth \spacingbelowquestion width 0pt}
+\bonusqformat{\large \thequestion. \textbf{\thequestiontitle}\hfill\vrule depth \spacingbelowquestion width 0pt}
+}
+\newcommand{\spacingbelowquestion}{0.85em}
+\formatqwithpoints
+\bonuspointpoints{bonus point}{bonus points}
+\renewcommand{\thepartno}{\arabic{partno}}
+\renewcommand\partlabel{\thepartno)}
+\bracketedpoints
+
+\setlength\parindent{0em}
+\setlength{\parskip}{1.0em}
+\renewcommand{\baselinestretch}{1.0}
+\renewcommand{\questionshook}{\setlength{\itemsep}{0.7em}
+    \setlength{\leftmargin}{0pt}\setlength{\labelwidth}{-\labelsep}}
+\renewcommand{\partshook}{\setlength{\itemsep}{0em}
+    \setlength{\leftmargin}{1em}
+    \setlength{\labelwidth}{-\labelsep}
+}
+\setlist[itemize]{itemsep=0em,parsep=0em}
+\newcommand{\myhrule}{\rule{\textwidth}{.5pt}}
+
+\newcommand{\titledq}[2]{\titledquestion{#1}[#2]\setlength{\parskip}{1.0em}}
+\newcommand{\titledqwithparts}[1]{
+    \large \formatqwithoutpoints
+    \titledquestion{#1}[]
+    \formatqwithpoints
+    \setlength{\parskip}{1.0em}
+    \normalsize
+}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\fileref}[1]{\texttt{#1}}
+\newcommand{\tbold}[1]{\textbf{#1}}
+\newcommand{\hint}{\tbold{Hint:}\ }
+\newcommand{\answer}{\tbold{Answer:}\ }
+
+% questions and parts with the number, title and points they have on the sheet
+% (the exam class keeps counting 1, 2, 3 internally; only the printed numbers are the sheet's)
+\newcommand{\sheetnumber}{}
+\newcommand{\sheetpartnumber}{}
+\renewcommand{\thequestion}{\sheetnumber}
+\renewcommand{\thepartno}{\sheetpartnumber}
+\newcommand{\sheetq}[3]{\renewcommand{\sheetnumber}{#1}\titledq{#2}{#3}}
+\newcommand{\sheetqwithparts}[2]{\renewcommand{\sheetnumber}{#1}\titledqwithparts{#2}}
+\newcommand{\sheetpart}[3]{\renewcommand{\sheetpartnumber}{#1}\part[#2] \tbold{#3}}
+
+\firstpageheader{Team: \teamname}{{\textbf{\lecture}}\\ Submission for the \assignment{\assignmentnumber}}{\semester}
+\firstpagefooter{}{\thepage}{}
+\runningheader{Team: \teamname}{Submission for the \assignment{\assignmentnumber}}{\semester}
+\runningfooter{}{\thepage}{}
+\headrule
+% ---------- End of the layout ----------
+
+\newcommand{\addtemplatenotes}{
+\setlength{\parskip}{0.0em}
+\small{
+\tbold{About this template:} This template contains the questions from the assignment sheet that require a
+written answer, with the original numbering and titles. While you may submit a handwritten scan instead, we
+strongly encourage using this \LaTeX{} template. \LaTeX{} is widely used for scientific papers and theses,
+especially for mathematical notation, so practicing it here is good preparation for your future research and
+thesis.
+\begin{itemize}
+    \item \tbold{Using this template:} Write your answer after \tbold{Answer:} below each question and compile
+    \code{submission.tex} to create \code{submission.pdf}.
+    \item \tbold{Showing your work:} Always provide your intermediate steps and reasoning, not just the final
+    result. For mathematical questions (derivations, proofs or calculations), show each step. For conceptual
+    questions, briefly explain the reasoning behind your answer.
+    \item \tbold{Team name \& anonymity:} Enter your team name at the top of \code{submission.tex}. Do not add
+    any other personal information, such as GitHub usernames, real names, email addresses or matriculation
+    numbers.
+    \item \tbold{How to hand in:} Commit and push \code{submission.pdf} to your team's repository together with
+    \code{submission.tex} and all files that it uses (for example, images and \code{.bib} files).
+\end{itemize}
+\myhrule%
+}%
+\setlength{\parskip}{1.0em}%
+}
+
+\begin{document}
+    \addtemplatenotes
+
+    \begin{questions}
+
+        \sheetqwithparts{1}{Pen and Paper tasks}
+
+        \begin{parts}
+            \sheetpart{1}{2}{}Perform two update steps of SGD with momentum to the weights
+            $\mathbf{w} = \begin{bmatrix} w_1 \\ w_2 \end{bmatrix}$ of the linear function $\mathbf{\hat y} = X\mathbf{w}$
+            optimizing the mean squared error (MSE). As in exercises 2 and 3, $X$ contains one data point per row. The
+            loss for one sample is given by $(\hat y - y)^2$, and, as for minibatch SGD in the lecture (Stochastic
+            Gradient Descent (SGD) \& Minibatch Sizes), the per-sample losses are summed and divided by the batch size.
+            Use the momentum update from the lecture: $\mathbf{v} \leftarrow \beta \mathbf{v} - \alpha \mathbf{\hat g}$,
+            $\mathbf{w} \leftarrow \mathbf{w} + \mathbf{v}$, where $\mathbf{\hat g}$ is the gradient of the loss with
+            respect to $\mathbf{w}$.
+
+            Given: the initial state $\mathbf{w} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$,
+            velocity $\mathbf{v} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}$,
+            data $X = \begin{bmatrix} 2 & -1 \\ -1 & 3 \end{bmatrix}$,
+            target $\mathbf{y} = \begin{bmatrix} 3 \\ 1 \end{bmatrix}$,
+            learning rate $\alpha = 0.2$, momentum strength $\beta = 0.8$ and batch size $B = 2$.
+
+            \answer Your answer.
+            % For math over several lines, uncomment and fill in:
+            % \begin{align*}
+            %     \mathbf{\hat y} &= X\mathbf{w} \\
+            %     L &= \frac{1}{B} \sum_{i=1}^{B} (\hat y_i - y_i)^2
+            % \end{align*}
+
+            \sheetpart{2}{2}{}Prove that in Adam the bias-corrected first moment estimate $\hat{s}$ (with $s$
+            initialized to $0$) is equal to the gradient in every step when that gradient remains constant.
+
+            \hint This can be done using mathematical induction.
+
+            \answer Your answer.
+        \end{parts}
+
+        \sheetqwithparts{2}{Coding Tasks}
+
+        \begin{parts}
+            \sheetpart{3}{2}{}Compare Adam vs SGD vs SGD with Momentum.
+
+            Create two plots, one with the training loss curves and one with the training accuracy curves of the
+            three models (function \code{plot\_learning\_curves} in file \fileref{lib/plot.py}).
+
+            Run \fileref{plot\_trained\_models.py} and include the two plots here.
+
+            \answer
+
+            % Save the plots as image files, add them to your repository and uncomment, for example:
+            % \includegraphics[width=0.8\textwidth]{learning_curves.png}
+
+            \sheetpart{5}{1}{}Plot learning rate schedules.
+
+            To verify your implementation, plot the learning rate schedules with number of epochs on the x-axis and
+            learning rate on the y-axis (function \code{plot\_lr\_schedules} in file \fileref{lib/plot.py}).
+
+            Run \fileref{plot\_lr\_schedules.py} and include the plot here.
+
+            \answer
+
+            % \includegraphics[width=0.6\textwidth]{lr_schedules.png}
+        \end{parts}
+
+        \sheetqwithparts{3}{Experiments}
+
+        \begin{parts}
+            \sheetpart{1}{1}{}Run \fileref{plot\_ill\_conditioned.py} for the following cases and include all the
+            generated plots:
+            \begin{itemize}
+                \item Condition number = 1, momentum = 0.0, preconditioning = False
+                \item Condition number = 8, momentum = 0.0, preconditioning = False
+                \item Condition number = 8, momentum = 0.35, preconditioning = False
+                \item Condition number = 8, momentum = 0.0, preconditioning = True
+            \end{itemize}
+
+            \answer
+
+            % \includegraphics[width=0.44\textwidth]{cond1_momentum0.png}
+            % \includegraphics[width=0.44\textwidth]{cond8_momentum0.png}
+
+            % \includegraphics[width=0.44\textwidth]{cond8_momentum035.png}
+            % \includegraphics[width=0.44\textwidth]{cond8_momentum0_precond.png}
+
+            Explain why the second experiment causes zigzag behaviour and why momentum and preconditioning can
+            mitigate this issue.
+
+            \answer Your answer.
+        \end{parts}
+
+    \end{questions}
+\end{document}
