@@ -10,3 +10,4 @@ Clone once, then `git pull` after each release for the next exercise. Each folde
 - [`ex02-mlps`](ex02-mlps/)
 - [`ex03-backprop`](ex03-backprop/)
 - [`ex04-opt`](ex04-opt/)
+- [`ex05-reg`](ex05-reg/)
